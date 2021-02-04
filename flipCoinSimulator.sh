@@ -2,11 +2,24 @@
 
 echo "Welcome to Flip Coin Simulator Problem!"
 
-a=$((RANDOM%2))
+read -p "How many times do you want to flip a coin : " limit;
+Heads=0
+Tails=0
 
-if [[ $a -eq 0 ]]
-then
-        echo "Winner is : Heads"
-else
-        echo "Winner is : Tails"
-fi
+for (( i=0; i<limit; i++))
+do
+	a=$((RANDOM%2))
+
+	if [[ $a -eq 0 ]]
+	then
+	        #echo "Winner is : Heads"
+		Heads=$(($Heads+1))
+	else
+	        #echo "Winner is : Tails"
+		Tails=$(($Tails+1))
+	fi
+done
+
+echo "Number of times Heads won is : " $Heads
+echo "Number of times Tails won is : " $Tails
+
