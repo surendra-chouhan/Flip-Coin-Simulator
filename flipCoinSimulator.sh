@@ -24,7 +24,14 @@ echo "Number of times Tails won is : " $Tails
 if [ $Heads -eq $Tails ]
 then
 	echo "It's a tie!"
-elif [ $Heads -gt $Tails ]
+	while [[ $(($Heads-$Tails)) -ge 2 ]]
+	do
+		Heads=$(($Heads+1))
+		Tails=$(($Tails+1))
+	done
+fi
+
+if [ $Heads -gt $Tails ]
 then
 	difference=$(($Heads-$Tails))
 	echo "Heads won by the difference of : " $difference
